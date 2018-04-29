@@ -1,97 +1,84 @@
-# Letter Avatar
+# File Extensions
 
-Provide a simple way to create letter avatar images, like those in your Gmail inbox.
+Provide a simple way to generate any file icon so that you don't to download icon each extension type.
 
 ## Install
 	
-	composer require "tequilarapido/letter-avatar"
+	composer require "gavande/extensions"
 	
 ## Usage 	
 	
-### Generate a letter avatar 
+### Generate a extension icon
  
- 	$letterAvatar = new LetterAvatar\LetterAvatar;
+ 	$icon = new Extensions\FileExtension();
  	
- 	$letterAvatar
- 		->generate('A', 40)
- 		->saveAsPng('/path/to/file.png');
- 		
- 	# You can pass a string, the first letter will be picked
- 	
- 	$letterAvatar
- 		->generate($user->getFirstName(), 40)
- 		->saveAsPng('/path/to/file.png');
+ 	$icon->generate('png', 40)->saveAsPng('/path/to/file.png');
  	
  	# If you don't specify a size, the max size will be used (240 by default)	 			
  		
-
 ### Custom font
 
 The font used by default is Open Sans Regular from google font.
 If you want, you can use any TTF font by setting the font file full path like so :
 
-    $letterAvatar
-        ->setFontFile('path/to/ttf_file.ttf')
-        ->generate('B', 40)
+    $icon->setFontFile('path/to/ttf_file.ttf')
+        ->generate('png', 40)
         ->saveAsPng('/path/to/file.png');
  		
  		
 
 ### Save as jpeg
 
-	$letterAvatar
-		->generate('J')
-		->saveAsJpeg('/path/to/file.jpg');	
+	$icon->generate('png')
+	    ->saveAsJpeg('/path/to/file.jpg');	
 	
 
 ### Save as png
 
-	$letterAvatar
-		->generate('J')
-		->saveAsPng('/path/to/file.png');	
+	$icon->generate('png')
+	    ->saveAsPng('/path/to/file.png');	
 	
 
 
 ### Text color
 
-	$letterAvatar
-		->setTextColor([255, 0, 0])
-		->generate('J')
-		->saveAsJpeg('/path/to/file.jpg');	
+	$icon->setTextColor([255, 0, 0])
+	    ->generate('png')
+	    ->saveAsJpeg('/path/to/file.jpg');	
 		
 
 ### Text shadow
 
-	$letterAvatar
-		->setTextColor([255, 0, 0])
-		->generate('J')
-		->showTextShadow(false)
-		->saveAsJpeg('/path/to/file.jpg');	
+	$icon
+	    ->setTextColor([255, 0, 0])
+	    ->generate('png')
+	    ->showTextShadow(false)
+	    ->saveAsJpeg('/path/to/file.jpg');	
 		
 ### Background colors palette
 
-	$letterAvatar
-		->setBackgroundColors([[255, 0, 0], [0, 255, 0], [0, 0, 255]])
-		->generate('J')
-		->saveAsJpeg('/path/to/file.jpg');
+	$icon
+	    ->setBackgroundColors([[255, 0, 0], [0, 255, 0], [0, 0, 255]])
+	    ->generate('png')
+	    ->saveAsJpeg('/path/to/file.jpg');
 			
 ### Using the same background color 
 			
 You can chain multiple generation to keep the same background color. (Generating multiple sizes)			
 
-	$letterAvatar
-		->generate('J', 50)->saveAsJpeg('/path/to/50x50/file.jpg')
-		->generate('J', 100)->saveAsJpeg('/path/to/100x100/file.jpg');
+	$icon
+	    ->generate('png', 50)->saveAsJpeg('/path/to/50x50/file.jpg')
+	    ->generate('png', 100)->saveAsJpeg('/path/to/100x100/file.jpg');
         		
 ### Reset background color
 
 If you want you can reset background color (so that a new random one will be used) in the middle of chaining
         	
-	$letterAvatar
-		->generate('J', 50)->saveAsJpeg('/path/to/50x50/file.jpg')
-		->generate('J', 100)->saveAsJpeg('/path/to/100x100/file.jpg')
+	$icon
+	    ->generate('png', 50)->saveAsJpeg('/path/to/50x50/file.jpg')
+	    ->generate('png', 100)->saveAsJpeg('/path/to/100x100/file.jpg')
         ->resetBackgroundColor()
-        ->generate('C', 100)->saveAsJpeg('/path/to/100x100/file.jpg');
+        ->generate('png', 100)->saveAsJpeg('/path/to/100x100/file.jpg');
 
         			
         		
