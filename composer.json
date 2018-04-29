@@ -1,0 +1,22 @@
+{
+    "name": "gavande/extensions",
+    "description": "",
+    "keywords": ["letter", "avatar", "generator"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rahul Gavande",
+            "email": "rahul@leecorn.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "ext-gd": "*",
+        "stil/gd-text": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Extensions\\": "src"
+        }
+    }
+}
